@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-height: 4rem;
+  --btn-font-family: theme(fontFamily.sans);
+  --btn-font-weight: 500;
+  --link-color: theme(colors.blue.500);
+  --link-hover-color: theme(colors.blue.600);
+  --primary: #007bff;
+  --primary-50: #cfe6ff;
+  --primary-100: #b8daff;
+  --primary-200: #8ac2ff;
+  --primary-300: #5cabff;
+  --primary-400: #2e93ff;
+  --primary-500: #007bff;
+  --primary-600: #0065d1;
+  --primary-700: #004fa3;
+  --primary-800: #003975;
+  --primary-900: #002247;
+  --secondary: #6c757d;
+  --secondary-50: #d9dcde;
+  --secondary-100: #cdd1d4;
+  --secondary-200: #b4babe;
+  --secondary-300: #9ca3a9;
+  --secondary-400: #838c94;
+  --secondary-500: #6c757d;
+  --secondary-600: #575e64;
+  --secondary-700: #41474c;
+  --secondary-800: #2c3033;
+  --secondary-900: #17191b;
+}

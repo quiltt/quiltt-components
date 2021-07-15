@@ -1,0 +1,47 @@
+export default {
+  base: 'flex font-medium leading-tight',
+  block: 'w-full',
+  size: {
+    '2xl': 'text-4xl md:text-5xl md:leading-tight',
+    xl: 'text-3xl md:text-4xl md:leading-tight',
+    lg: 'text-2xl md:text-3xl md:leading-tight',
+    md: 'text-xl md:text-2xl md:leading-tight',
+    sm: 'text-lg md:text-xl md:leading-tight',
+    xs: 'text-base md:text-lg md:leading-tight',
+  },
+  // styles applied to the SVG icon
+  icon: {
+    '2xl': 'w-12 h-12',
+    xl: 'w-9 h-9',
+    lg: 'w-8 h-8',
+    md: 'w-7 h-7',
+    sm: 'w-6 h-6',
+    xs: 'w-5 h-5',
+    left: {
+      '2xl': 'mr-6 -ml-1',
+      xl: 'mr-4 -ml-1',
+      lg: 'mr-4 -ml-1',
+      md: 'mr-3 -ml-1',
+      sm: 'mr-3 -ml-1',
+      xs: 'mr-2 -ml-1',
+    },
+    right: {
+      '2xl': 'ml-6 -mr-1',
+      xl: 'ml-4 -mr-1',
+      lg: 'ml-4 -mr-1',
+      md: 'ml-3 -mr-1',
+      sm: 'ml-3 -mr-1',
+      xs: 'ml-2 -mr-1',
+    },
+  },
+  variants: {
+    base: 'text-dark dark:text-light',
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    light: 'text-light',
+    dark: 'text-dark',
+    danger: 'text-danger',
+    success: 'text-success',
+    warning: 'text-warning',
+  },
+}

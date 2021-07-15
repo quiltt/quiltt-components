@@ -1,0 +1,77 @@
+#import 'graphql/fragments/plaid_item.graphql'
+
+query PlaidItems {
+  plaidItems {
+    ...PlaidItemFragment
+  }
+}
+
+query PlaidItemSyncStatus($id: ID!) {
+  plaidItem(id: $id) {
+    id
+    status
+    syncedAt
+  }
+}
+
+mutation PlaidLinkTokenCreate($input: PlaidLinkTokenCreateInput!) {
+  plaidLinkTokenCreate(input: $input) {
+    record {
+      linkToken
+      expiration
+    }
+    errors {
+      code
+      type
+      message
+      requestId
+      displayMessage
+    }
+  }
+}
+
+mutation PlaidLinkTokenCreateForUpdate(
+  $input: PlaidLinkTokenCreateForUpdateInput!
+) {
+  plaidLinkTokenCreateForUpdate(input: $input) {
+    record {
+      linkToken
+      expiration
+    }
+    errors {
+      code
+      type
+      message
+      requestId
+      displayMessage
+    }
+  }
+}
+
+mutation PlaidItemCreate($input: PlaidItemCreateInput!) {
+  plaidItemCreate(input: $input) {
+    record {
+      ...PlaidItemFragment
+    }
+    errors {
+      displayMessage
+    }
+  }
+}
+
+mutation PlaidItemUnlink($id: ID!) {
+  plaidItemDelete(input: { id: $id }) {
+    success
+    record {
+      id
+    }
+  }
+}
+
+subscription PlaidItemUpdated($id: ID!) {
+  plaidItemUpdated(id: $id) {
+    record {
+      ...PlaidItemFragment
+    }
+  }
+}
