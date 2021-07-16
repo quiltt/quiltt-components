@@ -1,7 +1,7 @@
 {
   "name": "quiltt-components",
   "version": "0.0.1",
-  "description": "Boilerplate for publishing modern React modules with Rollup",
+  "description": "Open source fintech components designed to work with the Quiltt API",
   "author": "Zubair Aziz",
   "license": "MIT",
   "repository": "quiltt/quiltt-components",
@@ -17,8 +17,9 @@
     "start": "yarn develop",
     "precommit": "lint-staged",
     "prepublish": "yarn build",
+    "publish": "npm publish --access public",
     "predeploy": "cd example && yarn install && yarn build",
-    "deploy": "gh-pages -d example/build",
+    "deploy": "gh-pages -d example/dist",
     "lint": "eslint --ext .tsx --ext .ts src/ && eslint --ext .tsx --ext .ts example/src/ ",
     "lint:fix": "eslint --ext .tsx --ext .ts src/ --fix && eslint --ext .tsx --ext .ts example/src/ --fix",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css,md,json}\" && prettier --write \"./example/src/**/*.{js,jsx,ts,tsx,css,md,json}\"",
@@ -107,8 +108,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
       "yarn lint:fix",
-      "yarn format",
-      "git add"
+      "yarn format"
     ]
   }
 }
