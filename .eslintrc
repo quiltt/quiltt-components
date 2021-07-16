@@ -2,9 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
+    "airbnb-typescript",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
@@ -17,7 +15,8 @@
     "ecmaFeatures": {
       "legacyDecorators": true,
       "jsx": true
-    }
+    },
+    "project": "tsconfig.json"
   },
   "settings": {
     "react": {
@@ -30,6 +29,7 @@
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
     "import/export": 0,
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",

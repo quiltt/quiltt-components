@@ -24,12 +24,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
   const disabledStyle = styles.select.disabled
   const selectStyle = styles.select.select
 
-  function hasValidation(valid: boolean | undefined) {
+  function hasValidation() {
     return valid !== undefined
   }
 
-  function validationStyle(valid: boolean | undefined): string {
-    if (hasValidation(valid)) {
+  function validationStyle(): string {
+    if (hasValidation()) {
       return valid ? validStyle : invalidStyle
     }
     return ''
@@ -38,10 +38,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(function Select(
   const cls = classNames(
     baseStyle,
     // don't apply activeStyle if has valid or disabled
-    !hasValidation(valid) && !disabled && activeStyle,
+    !hasValidation() && !disabled && activeStyle,
     // don't apply disabledStyle if has valid
-    !hasValidation(valid) && disabled && disabledStyle,
-    validationStyle(valid),
+    !hasValidation() && disabled && disabledStyle,
+    validationStyle(),
     !multiple && selectStyle,
     className
   )

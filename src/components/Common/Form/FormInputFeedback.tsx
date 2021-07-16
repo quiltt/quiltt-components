@@ -38,7 +38,7 @@ const FormInputFeedback: CustomComponentRefForwardingComponent<
 
   return React.createElement(as as string, {
     className: cls,
-    ref: ref,
+    ref,
     ...otherProps,
   })
 })

@@ -48,18 +48,18 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
     const radioStyle = styles.input.radio
     const checkStyle = styles.input.checkbox
 
-    function hasValidation(valid: boolean | undefined) {
+    function hasValidation() {
       return valid !== undefined
     }
 
-    function validationStyle(valid: boolean | undefined): string {
-      if (hasValidation(valid)) {
+    function validationStyle(): string {
+      if (hasValidation()) {
         return valid ? validStyle : invalidStyle
       }
       return ''
     }
 
-    function sizeStyle(size: 'sm' | 'base' | 'lg'): string {
+    function sizeStyle(): string {
       switch (size) {
         case 'sm':
           return smStyle
@@ -70,24 +70,24 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
       }
     }
 
-    function typeStyle(type: string): string {
+    function typeStyle(): string {
       switch (type) {
         case 'radio':
           return radioStyle
         case 'checkbox':
           return checkStyle
         default:
-          return sizeStyle(size)
+          return sizeStyle()
       }
     }
 
     const cls = classNames(
-      typeStyle(type),
+      typeStyle(),
       // don't apply activeStyle if has valid or disabled
-      !hasValidation(valid) && !disabled && activeStyle,
+      !hasValidation() && !disabled && activeStyle,
       // don't apply disabledStyle if has valid
-      !hasValidation(valid) && disabled && disabledStyle,
-      validationStyle(valid),
+      !hasValidation() && disabled && disabledStyle,
+      validationStyle(),
       className
     )
 

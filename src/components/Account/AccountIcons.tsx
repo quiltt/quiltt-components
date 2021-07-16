@@ -1,12 +1,6 @@
 import * as React from 'react'
 
-export type AccountIconTypes =
-  | 'CHECKING'
-  | 'CREDIT'
-  | 'SAVINGS'
-  | 'LOAN'
-  | 'INVESTMENT'
-  | 'MORTGAGE'
+import { AccountTypes } from 'graphql/types'
 
 const BaseIcon = ({ children }: { children: React.ReactNode }) => (
   <svg
@@ -81,20 +75,20 @@ const MortgageIcon = () => (
   </BaseIcon>
 )
 
-const AccountIcons = ({ type }: { type: AccountIconTypes }): JSX.Element => {
+const AccountIcons = ({ type }: { type: AccountTypes }): JSX.Element => {
   const renderIcon = () => {
     switch (type) {
-      case 'CHECKING':
+      case AccountTypes.Checking:
         return <CheckingIcon />
-      case 'CREDIT':
+      case AccountTypes.Credit:
         return <CreditIcon />
-      case 'SAVINGS':
+      case AccountTypes.Savings:
         return <SavingsIcon />
-      case 'LOAN':
+      case AccountTypes.Loan:
         return <LoanIcon />
-      case 'INVESTMENT':
+      case AccountTypes.Investment:
         return <InvestmentIcon />
-      case 'MORTGAGE':
+      case AccountTypes.Mortgage:
         return <MortgageIcon />
       default:
         return <CheckingIcon />

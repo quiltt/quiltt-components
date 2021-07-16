@@ -38,6 +38,8 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(function Label(
   )
 
   return (
+    // Disabling this eslint rule as component will receive input as child
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={cls} ref={ref} {...other}>
       {children}
     </label>

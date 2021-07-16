@@ -4,7 +4,7 @@
 
 In the project directory, you can run:
 
-### `yarn start / yarn develop / yarn dev`
+### `yarn start / yarn develop`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -286,7 +286,7 @@ Here is an example:
 
 ```js
 import React from 'react'
-import logo from './logo.png' // Tell Webpack this JS file uses this image
+import logo from './logo.png'
 
 console.log(logo) // /logo.84287d09.png
 

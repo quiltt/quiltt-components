@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 // Create custom locale based on en-US, to display relative dates without times
 import { formatDistanceToNow, parseISO, formatRelative } from 'date-fns'
 import formatDistance from 'date-fns/locale/en-US/_lib/formatDistance/index.js'
@@ -15,10 +16,10 @@ export type RelativeTimeTokens =
 
 // Get the default en-US locale to be added to
 const defaultLocale = {
-  formatDistance: formatDistance,
-  formatLong: formatLong,
-  localize: localize,
-  match: match,
+  formatDistance,
+  formatLong,
+  localize,
+  match,
   options: { weekStartsOn: 1 },
 }
 

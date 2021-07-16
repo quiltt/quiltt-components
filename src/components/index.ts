@@ -1,2 +1,2 @@
 export * from './Common'
-export { default as Connect } from './Connect'
+export { default as PlaidLinkButton } from './PlaidLinkButton'

@@ -45,11 +45,11 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
         {`Sort by ${label}`}
       </Button>
       <Dropdown isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        {options.map((option, index) => (
+        {options.map((option) => (
           <Dropdown.Item
             className="justify-between"
             onClick={() => reorder(option)}
-            key={`item-${index}`}
+            key={option.description}
           >
             {option.description}
           </Dropdown.Item>

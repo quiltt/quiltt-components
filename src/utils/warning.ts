@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Helper function to show warning in the console during development
  * @param {expression} assert - assertion to test

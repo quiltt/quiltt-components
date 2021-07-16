@@ -13,7 +13,8 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "build": "rollup -c",
-    "start": "rollup -c -w",
+    "develop": "rollup -c -w",
+    "start": "yarn develop",
     "precommit": "lint-staged",
     "prepublish": "yarn build",
     "predeploy": "cd example && yarn install && yarn build",
@@ -51,9 +52,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.30.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-config-standard-react": "^11.0.1",
@@ -92,6 +93,7 @@
     "@apollo/client": "^3.3.21",
     "@headlessui/react": "^1.3.0",
     "@heroicons/react": "^1.0.2",
+    "classnames": "^2.3.1",
     "date-fns": "^2.22.1",
     "react-focus-lock": "^2.5.2",
     "react-plaid-link": "^3.2.0"

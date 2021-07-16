@@ -105,7 +105,7 @@ const InputGroup: CustomComponentRefForwardingComponent<
       {React.createElement(
         as as string,
         {
-          ref: ref,
+          ref,
           className: cls,
           ...otherProps,
         },

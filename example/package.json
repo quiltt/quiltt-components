@@ -20,9 +20,8 @@
     "typescript": "link:../node_modules/typescript"
   },
   "scripts": {
-    "dev": "vite",
-    "develop": "yarn dev",
-    "start": "yarn dev",
+    "develop": "vite",
+    "start": "yarn develop",
     "build": "vite build",
     "serve": "vite preview",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",

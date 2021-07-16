@@ -11,3 +11,11 @@ declare module '*.svg' {
   export default svgUrl
   export { svgComponent as ReactComponent }
 }
+
+declare module 'date-fns/locale/en-US/_lib/formatDistance/index.js'
+
+declare module 'date-fns/locale/en-US/_lib/formatLong/index.js'
+
+declare module 'date-fns/locale/en-US/_lib/localize/index.js'
+
+declare module 'date-fns/locale/en-US/_lib/match/index.js'
