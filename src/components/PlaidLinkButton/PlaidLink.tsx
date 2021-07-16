@@ -3,6 +3,8 @@ import { usePlaidLink } from 'react-plaid-link'
 import { gql, useMutation } from '@apollo/client'
 import { Button } from 'components/Common'
 
+import { ButtonProps } from 'components/Common/Button'
+
 const CREATE_PLAID_ITEM = gql`
   mutation PlaidItemCreate($input: PlaidItemCreateInput!) {
     plaidItemCreate(input: $input) {
@@ -19,11 +21,11 @@ const CREATE_PLAID_ITEM = gql`
   }
 `
 
-export type PlaidLinkProps = {
+export type PlaidLinkProps = ButtonProps & {
   linkToken: string
 }
 
-const PlaidLink: React.FC<PlaidLinkProps> = ({ linkToken }) => {
+const PlaidLink: React.FC<PlaidLinkProps> = ({ linkToken, ...otherProps }) => {
   const [create] = useMutation(CREATE_PLAID_ITEM, {
     onCompleted: (result) => {
       // eslint-disable-next-line no-console
@@ -51,7 +53,7 @@ const PlaidLink: React.FC<PlaidLinkProps> = ({ linkToken }) => {
   if (error) throw error
 
   return (
-    <Button onClick={() => open()} disabled={!ready}>
+    <Button onClick={() => open()} disabled={!ready} {...otherProps}>
       Add Bank Connection
     </Button>
   )

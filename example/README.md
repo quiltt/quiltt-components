@@ -285,7 +285,7 @@ To reduce the number of requests to the server, importing images that are less t
 Here is an example:
 
 ```js
-import React from 'react'
+import * as React from 'react'
 import logo from './logo.png'
 
 console.log(logo) // /logo.84287d09.png

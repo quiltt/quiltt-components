@@ -1,15 +1,20 @@
 import * as React from 'react'
+import { Route, Routes } from 'react-router-dom'
 
-import 'quiltt-components/dist/index.css'
+import { QuilttProvider } from 'quiltt-components'
 
-// import { Connect } from 'quiltt-components'
+import Auth from './Auth'
+import Starter from './Starter'
 
-const App = () => {
+export const App: React.FC = () => {
   return (
-    <div>
-      {/* <Connect data={data} isLoading={isLoading} /> */}
-      <p>Hello World!</p>
-    </div>
+    <QuilttProvider>
+      <Routes>
+        <Route path="/" element={<Starter.Home />} />
+        <Route path="/connect" element={<Starter.Connect />} />
+        <Route path="/auth" element={<Auth.Page />} />
+      </Routes>
+    </QuilttProvider>
   )
 }
 

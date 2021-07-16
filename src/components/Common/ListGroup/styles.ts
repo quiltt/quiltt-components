@@ -1,13 +1,13 @@
 export default {
   listGroup: {
-    base: 'min-w-0 bg-white text-dark dark:bg-gray-800 dark:text-light',
+    base: 'min-w-0 bg-transparent text-dark dark:bg-gray-800 dark:text-light',
     default: 'rounded-lg ring-1 ring-black ring-opacity-5',
     flush: 'w-full rounded-none',
   },
   listGroupItem: {
     base: 'flex flex-col p-4 border-b border-black border-opacity-5 first:rounded-t-lg last:rounded-b-lg',
     disabled: 'opacity-75 pointer-events-none',
-    default: 'bg-white text-dark dark:bg-gray-800 dark:text-light',
+    default: 'bg-transparent text-dark dark:bg-gray-800 dark:text-light',
     primary:
       'bg-primary-100 text-primary-600 dark:bg-primary-700 dark:text-primary-300',
     secondary:

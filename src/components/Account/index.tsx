@@ -2,17 +2,17 @@ import * as React from 'react'
 
 import { currencyFormatter } from 'utils/currency'
 
-import type { Account as AccountType } from 'graphql/types'
+import type { Account as AccountType } from 'types'
 import AccountIcons from './AccountIcons'
 
-const Account: React.FC<AccountType> = ({
-  type,
-  name,
-  lastFourDigits,
-  balance,
-}) => {
+type AccountProps = {
+  account: AccountType
+}
+
+const Account: React.FC<AccountProps> = ({ account }) => {
+  const { type, name, lastFourDigits, balance } = account
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center justify-between space-x-3">
       <AccountIcons type={type} />
       <div className="flex-auto overflow-hidden leading-tight overflow-ellipsis">
         <div className="font-medium">{name}</div>

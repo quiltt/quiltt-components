@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { gql, useMutation } from '@apollo/client'
 import { Button } from 'components/Common'
+import { ButtonProps } from 'components/Common/Button'
 import PlaidLink from './PlaidLink'
 
 const CREATE_PLAID_LINK_TOKEN = gql`
@@ -15,7 +16,7 @@ const CREATE_PLAID_LINK_TOKEN = gql`
   }
 `
 
-const PlaidLinkButton: React.FC = () => {
+const PlaidLinkButton: React.FC<ButtonProps> = (props) => {
   const [linkToken, setLinkToken] = React.useState<string | undefined>()
   const [create] = useMutation(CREATE_PLAID_LINK_TOKEN, {
     variables: { input: { products: ['transactions'] } },
@@ -29,9 +30,13 @@ const PlaidLinkButton: React.FC = () => {
   }, [linkToken, create])
 
   if (!linkToken) {
-    return <Button disabled>Loading...</Button>
+    return (
+      <Button disabled {...props}>
+        Loading...
+      </Button>
+    )
   }
-  return <PlaidLink linkToken={linkToken} />
+  return <PlaidLink linkToken={linkToken} {...props} />
 }
 
 export default PlaidLinkButton

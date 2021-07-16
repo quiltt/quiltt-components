@@ -64,6 +64,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-standard": "^5.0.0",
     "gh-pages": "^3.2.3",
@@ -93,8 +94,10 @@
     "@apollo/client": "^3.3.21",
     "@headlessui/react": "^1.3.0",
     "@heroicons/react": "^1.0.2",
+    "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "date-fns": "^2.22.1",
+    "graphql": "^15.5.1",
     "react-focus-lock": "^2.5.2",
     "react-plaid-link": "^3.2.0"
   },

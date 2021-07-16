@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { AccountTypes } from 'graphql/types'
+import { AccountTypes } from 'types'
 
 const BaseIcon = ({ children }: { children: React.ReactNode }) => (
   <svg

@@ -17,6 +17,12 @@ dist
 .env.test.local
 .env.production.local
 
+example/.env
+example/.env.local
+example/.env.development.local
+example/.env.test.local
+example/.env.production.local
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
