@@ -16,7 +16,7 @@
     "develop": "rollup -c -w",
     "start": "yarn develop",
     "precommit": "lint-staged",
-    "prepublish": "yarn build",
+    "prepare": "yarn build",
     "publish": "npm publish --access public",
     "predeploy": "cd example && yarn install && yarn build",
     "deploy": "gh-pages -d example/dist",
