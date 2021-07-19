@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Button } from 'components/Common'
-import type { ButtonProps } from 'components/Common/Button'
+import Button from '../Button'
+import type { ButtonProps } from '../Button'
 
 import styles from './styles'
 
