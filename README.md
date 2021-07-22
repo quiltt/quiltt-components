@@ -72,6 +72,28 @@ export const App: React.FC = () => {
 export default App
 ```
 
+## Exported Components
+
+### Atomic Components
+
+- `Alert`
+- `Badge`
+- `Button`
+- `Card`
+- `Dropdown`
+- `Form`
+- `Heading`
+- `ListGroup`
+- `Spinner`
+- `ToggleSwitch`
+
+### Fintech Components
+
+- `Account`
+- `AccountList`
+- `Transaction`
+- `TransactionList`
+
 ## License
 
 MIT © [quiltt](https://github.com/quiltt)
