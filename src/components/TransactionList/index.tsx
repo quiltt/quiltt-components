@@ -19,7 +19,7 @@ const TransactionList: CustomComponentRefForwardingComponent<'ul', TransactionLi
 
     const baseStyles = 'flex flex-col w-full'
     const wrapperStyles = classNames(baseStyles, className)
-    const listItemStyles = classNames('p-4 border-b border-black border-opacity-10 last:border-b-0')
+    const listItemStyles = classNames('p-4 border-b border-gray-200 last:border-b-0')
 
     const transactionAs = as === 'ul' || as === 'ol' ? 'li' : 'div'
 
