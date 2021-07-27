@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { PlaidLinkButton, useQuilttContext } from 'quiltt-components'
+import { PlaidLinkButton, useQuilttContext } from '@quiltt/client'
 
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'

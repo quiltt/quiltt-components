@@ -5,13 +5,14 @@ import { AccountTypes } from 'types'
 const BaseIcon = ({ children }: { children: React.ReactNode }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="inline-block w-5 h-5"
+    className="block w-5 h-5"
     viewBox="0 0 24 24"
     strokeWidth={2}
     stroke="currentColor"
     fill="none"
     strokeLinecap="round"
     strokeLinejoin="round"
+    style={{ minWidth: '1.25rem' }}
   >
     {children}
   </svg>
@@ -66,35 +67,27 @@ const InvestmentIcon = () => (
   </BaseIcon>
 )
 
-const MortgageIcon = () => (
+const OtherIcon = () => (
   <BaseIcon>
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <polyline points="5 12 3 12 12 3 21 12 19 12" />
-    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+    <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+    <path d="M12 3v3m0 12v3" />
   </BaseIcon>
 )
 
-const AccountIcons = ({ type }: { type: AccountTypes }): JSX.Element => {
-  const renderIcon = () => {
-    switch (type) {
-      case AccountTypes.Checking:
-        return <CheckingIcon />
-      case AccountTypes.Credit:
-        return <CreditIcon />
-      case AccountTypes.Savings:
-        return <SavingsIcon />
-      case AccountTypes.Loan:
-        return <LoanIcon />
-      case AccountTypes.Investment:
-        return <InvestmentIcon />
-      case AccountTypes.Mortgage:
-        return <MortgageIcon />
-      default:
-        return <CheckingIcon />
+const AccountIcons = ({ type }: { type: AccountTypes }): JSX.Element => (
+  <>
+    {
+      {
+        CHECKING: <CheckingIcon />,
+        CREDIT: <CreditIcon />,
+        SAVINGS: <SavingsIcon />,
+        LOAN: <LoanIcon />,
+        INVESTMENT: <InvestmentIcon />,
+        OTHER: <OtherIcon />,
+      }[type]
     }
-  }
-  return <>{renderIcon}</>
-}
+  </>
+)
 
 export default AccountIcons

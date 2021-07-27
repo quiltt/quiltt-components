@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useQuilttContext } from 'quiltt-components'
+import { useQuilttContext } from '@quiltt/client'
 
 const LogoutButton: React.FC = () => {
   const { setAuthorizationToken } = useQuilttContext()

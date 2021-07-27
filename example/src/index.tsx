@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import './index.css'
-import 'quiltt-components/dist/index.css'
+import '@quiltt/components/dist/index.css'
 
 import App from './App'
 

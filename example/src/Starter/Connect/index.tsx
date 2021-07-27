@@ -2,7 +2,9 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import { gql, useQuery } from '@apollo/client'
-import { AccountList, Card, PlaidLinkButton } from 'quiltt-components'
+import { PlaidLinkButton } from '@quiltt/client'
+import { AccountList } from '@quiltt/components'
+import { Button } from '@quiltt/ui'
 
 const GET_ACCOUNTS = gql`
   query {
@@ -40,13 +42,12 @@ const Connect: React.FC = () => {
         Go Back
       </Link>
       <div className="p-4 mx-auto max-w-7xl">
-        {/* <PlaidLinkButton /> */}
         {data.plaidItems.map((item: any) => {
           const { accounts } = item
           return (
-            <ul className="my-3 rounded-lg shadow" key={item.id}>
-              <li className="flex flex-col">
-                <Card>
+            <div className="my-3 border rounded-lg shadow" key={item.id}>
+              <div className="flex flex-col">
+                <div>
                   <div className="p-4 bg-gray-100 rounded-t-lg dark:bg-gray-700">
                     <div className="flex items-center justify-center space-x-2">
                       {item?.logo?.url ? <img src={item.logo.url} alt="" width={50} height={50} /> : null}
@@ -54,13 +55,13 @@ const Connect: React.FC = () => {
                     </div>
                   </div>
                   {accounts.length ? <AccountList accounts={accounts} /> : null}
-                </Card>
-              </li>
-            </ul>
+                </div>
+              </div>
+            </div>
           )
         })}
         <div className="my-4">
-          <PlaidLinkButton block />
+          <Button as={PlaidLinkButton} block />
         </div>
       </div>
     </div>

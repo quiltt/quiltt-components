@@ -1,26 +1,47 @@
 import * as React from 'react'
 
-import { ListGroup } from 'components/Common'
 import Transaction from 'components/Transaction'
+
 import type { Transaction as TransactionType } from 'types'
+import { CustomComponentProps, CustomComponentRefForwardingComponent } from 'utils/components'
+import classNames from 'classnames'
 
-type TransactionListProps = {
-  transactions: TransactionType[]
-}
+type TransactionListProps = React.HTMLAttributes<HTMLElement> &
+  CustomComponentProps & {
+    transactions: TransactionType[]
+  }
 
-const TransactionList: React.FC<TransactionListProps> = ({ transactions }) => {
-  return (
-    <ListGroup variant="flush">
-      {transactions.map((transaction: TransactionType) => {
+type Ref = React.ReactNode | HTMLElement | string
+
+const TransactionList: CustomComponentRefForwardingComponent<'ul', TransactionListProps> =
+  React.forwardRef<Ref, TransactionListProps>(function TransactionList(props, ref) {
+    const { as = 'ul', className, transactions, ...otherProps } = props
+
+    const baseStyles = 'flex flex-col w-full'
+    const wrapperStyles = classNames(baseStyles, className)
+    const listItemStyles = classNames('p-4 border-b border-black border-opacity-10 last:border-b-0')
+
+    const transactionAs = as === 'ul' || as === 'ol' ? 'li' : 'div'
+
+    return React.createElement(
+      as as string,
+      {
+        className: wrapperStyles,
+        ref,
+        ...otherProps,
+      },
+      transactions.map((transaction) => {
         const { id } = transaction
         return (
-          <ListGroup.Item className="items-stretch" key={id}>
-            <Transaction transaction={transaction} />
-          </ListGroup.Item>
+          <Transaction
+            className={listItemStyles}
+            transaction={transaction}
+            key={id}
+            as={transactionAs}
+          />
         )
-      })}
-    </ListGroup>
-  )
-}
+      })
+    )
+  })
 
 export default TransactionList

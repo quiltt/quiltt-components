@@ -16,9 +16,8 @@ export interface AsProp<As extends React.ElementType = React.ElementType> {
   as?: As
 }
 
-export interface CustomComponentProps<
-  As extends React.ElementType = React.ElementType
-> extends CustomComponentOnlyProps,
+export interface CustomComponentProps<As extends React.ElementType = React.ElementType>
+  extends CustomComponentOnlyProps,
     AsProp<As> {}
 
 export interface CustomComponentRefForwardingComponent<
@@ -26,9 +25,7 @@ export interface CustomComponentRefForwardingComponent<
   P = unknown
 > {
   <As extends React.ElementType = TInitial>(
-    props: React.PropsWithChildren<
-      ReplaceProps<As, CustomComponentProps<As> & P>
-    >,
+    props: React.PropsWithChildren<ReplaceProps<As, CustomComponentProps<As> & P>>,
     context?: any
   ): React.ReactElement | null
   contextTypes?: any

@@ -1,26 +1,42 @@
 import * as React from 'react'
 
-import { ListGroup } from 'components/Common'
 import Account from 'components/Account'
-import { Account as AccountType } from 'types'
 
-type AccountListProps = {
-  accounts: AccountType[]
-}
+import type { Account as AccountType } from 'types'
+import { CustomComponentProps, CustomComponentRefForwardingComponent } from 'utils/components'
+import classNames from 'classnames'
 
-const AccountList: React.FC<AccountListProps> = ({ accounts }) => {
-  return (
-    <ListGroup variant="flush">
-      {accounts.map((account: AccountType) => {
-        const { id } = account
-        return (
-          <ListGroup.Item className="items-stretch" key={id}>
-            <Account account={account} />
-          </ListGroup.Item>
-        )
-      })}
-    </ListGroup>
+type AccountListProps = React.HTMLAttributes<HTMLElement> &
+  CustomComponentProps & {
+    accounts: AccountType[]
+  }
+
+type Ref = React.ReactNode | HTMLElement | string
+
+const AccountList: CustomComponentRefForwardingComponent<'ul', AccountListProps> = React.forwardRef<
+  Ref,
+  AccountListProps
+>(function AccountList(props, ref) {
+  const { as = 'ul', className, accounts, ...otherProps } = props
+
+  const baseStyles = 'flex flex-col w-full'
+  const wrapperStyles = classNames(baseStyles, className)
+  const listItemStyles = classNames('p-4 border-b border-black border-opacity-10 last:border-b-0')
+
+  const accountAs = as === 'ul' || as === 'ol' ? 'li' : 'div'
+
+  return React.createElement(
+    as as string,
+    {
+      className: wrapperStyles,
+      ref,
+      ...otherProps,
+    },
+    accounts.map((account) => {
+      const { id } = account
+      return <Account className={listItemStyles} account={account} key={id} as={accountAs} />
+    })
   )
-}
+})
 
 export default AccountList

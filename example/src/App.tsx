@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { QuilttProvider } from 'quiltt-components'
+import { QuilttProvider } from '@quiltt/client'
 
 import Auth from './Auth'
 import Starter from './Starter'

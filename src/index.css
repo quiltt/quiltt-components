@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --nav-height: 4rem;
-  --btn-font-family: theme(fontFamily.sans);
-  --btn-font-weight: 500;
-  --link-color: theme(colors.blue.500);
-  --link-hover-color: theme(colors.blue.600);
   --primary: #007bff;
   --primary-50: #cfe6ff;
   --primary-100: #b8daff;

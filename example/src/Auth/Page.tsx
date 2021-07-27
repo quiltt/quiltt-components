@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useQuilttContext } from 'quiltt-components'
+import { useQuilttContext } from '@quiltt/client'
 
 import Passcode from './Passcode'
 import Username from './Username'
