@@ -16,7 +16,23 @@ type AccountContentProps = {
 
 type AccountProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
-    account: AccountType
+    account: {
+      __typename?: AccountType['__typename']
+      balance?: AccountType['balance']
+      bills?: AccountType['bills']
+      id?: AccountType['id']
+      lastFourDigits?: AccountType['lastFourDigits']
+      metadata?: AccountType['metadata']
+      name: AccountType['name']
+      plaidItem?: AccountType['plaidItem']
+      source?: AccountType['source']
+      sources?: AccountType['sources']
+      state?: AccountType['state']
+      status?: AccountType['status']
+      transactions?: AccountType['transactions']
+      transactionsConnection?: AccountType['transactionsConnection']
+      type: AccountType['type']
+    }
   }
 
 type Ref = React.ReactNode | HTMLElement | string

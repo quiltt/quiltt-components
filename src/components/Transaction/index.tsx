@@ -15,7 +15,19 @@ type TransactionContentProps = {
 
 type TransactionProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
-    transaction: TransactionType
+    transaction: {
+      __typename?: 'Transaction'
+      account?: TransactionType['account']
+      amount: TransactionType['amount']
+      date: TransactionType['date']
+      description: TransactionType['description']
+      entryType?: TransactionType['entryType']
+      id?: TransactionType['id']
+      metadata?: TransactionType['metadata']
+      source?: TransactionType['source']
+      sources?: TransactionType['sources']
+      status?: TransactionType['status']
+    }
   }
 
 type Ref = React.ReactNode | HTMLElement | string
