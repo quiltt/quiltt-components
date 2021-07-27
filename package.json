@@ -17,7 +17,7 @@
     "start": "yarn develop",
     "precommit": "lint-staged",
     "prepare": "yarn build",
-    "prepublish": "yarn np",
+    "package": "yarn np",
     "publish-script": "npm publish --access public",
     "predeploy": "cd example && yarn install && yarn build",
     "deploy": "gh-pages -d example/dist",
