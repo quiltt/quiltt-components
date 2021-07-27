@@ -11,8 +11,6 @@ export type UsernameProps = {
 
 const quilttAppID = import.meta.env.VITE_APP_QUILTT_APP_ID as string
 
-console.log(quilttAppID)
-
 export const Username: React.VFC<UsernameProps> = ({ onIdentification, onAuthentication }) => {
   const [email, setEmail] = React.useState<string>()
   const auth = useQuilttAuth(quilttAppID)

@@ -32,7 +32,9 @@ const AccountContent: React.FC<AccountContentProps> = ({ type, name, lastFourDig
       </small>
     </div>
     {/* Stricter checking to display $0.00 */}
-    {balance?.current ? <div>{currencyFormatter(balance.current as number)}</div> : null}
+    {balance?.current !== null && balance?.current !== undefined ? (
+      <div>{currencyFormatter(balance.current as number)}</div>
+    ) : null}
   </>
 )
 

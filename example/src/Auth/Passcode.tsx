@@ -10,8 +10,6 @@ export type PasscodeProps = {
 
 const quilttAppID = import.meta.env.VITE_APP_QUILTT_APP_ID as string
 
-console.log(quilttAppID)
-
 export const Passcode: React.VFC<PasscodeProps> = ({ email, onAuthentication }) => {
   const [passcode, setPasscode] = React.useState<string>()
   const auth = useQuilttAuth(quilttAppID)

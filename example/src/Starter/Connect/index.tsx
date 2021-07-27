@@ -33,8 +33,6 @@ const Connect: React.FC = () => {
   if (loading) return <p>Loading...</p>
   if (error) throw error
 
-  console.log(data)
-
   return (
     <div className="p-4">
       {' '}
