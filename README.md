@@ -74,21 +74,6 @@ export default App
 
 ## Exported Components
 
-### Atomic Components
-
-- `Alert`
-- `Badge`
-- `Button`
-- `Card`
-- `Dropdown`
-- `Form`
-- `Heading`
-- `ListGroup`
-- `Spinner`
-- `ToggleSwitch`
-
-### Fintech Components
-
 - `Account`
 - `AccountList`
 - `Transaction`
