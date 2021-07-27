@@ -27,6 +27,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src", "jest"],
   "exclude": ["node_modules", "dist", "example"]
 }

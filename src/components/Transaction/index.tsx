@@ -32,7 +32,7 @@ const TransactionContent: React.FC<TransactionContentProps> = ({ description, da
 
 const Transaction: CustomComponentRefForwardingComponent<'div', TransactionProps> =
   React.forwardRef<Ref, TransactionProps>(function Transaction(props, ref) {
-    const { as = 'div', className, transaction, ...otherProps } = props
+    const { as = 'div', className = '', transaction, ...otherProps } = props
 
     const baseStyles = 'flex items-center justify-between space-x-3'
     const wrapperStyles = classNames(baseStyles, className)

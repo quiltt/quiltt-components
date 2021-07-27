@@ -40,7 +40,7 @@ const Account: CustomComponentRefForwardingComponent<'div', AccountProps> = Reac
   Ref,
   AccountProps
 >(function Account(props, ref) {
-  const { as = 'div', className, account, ...otherProps } = props
+  const { as = 'div', className = '', account, ...otherProps } = props
 
   const baseStyles = 'flex items-center justify-between space-x-3'
   const wrapperStyles = classNames(baseStyles, className)

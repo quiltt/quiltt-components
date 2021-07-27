@@ -17,7 +17,7 @@ const AccountList: CustomComponentRefForwardingComponent<'ul', AccountListProps>
   Ref,
   AccountListProps
 >(function AccountList(props, ref) {
-  const { as = 'ul', className, accounts, ...otherProps } = props
+  const { as = 'ul', className = '', accounts, ...otherProps } = props
 
   const baseStyles = 'flex flex-col w-full'
   const wrapperStyles = classNames(baseStyles, className)

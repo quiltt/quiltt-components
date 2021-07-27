@@ -11,7 +11,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test": "yarn run jest -env=jsdom",
     "build": "rollup -c",
     "develop": "rollup -c -w",
     "start": "yarn develop",
@@ -33,7 +33,7 @@
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.14.8",
     "@babel/eslint-parser": "^7.14.7",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
@@ -51,17 +51,22 @@
     "@storybook/react": "^6.3.6",
     "@svgr/rollup": "^5.5.0",
     "@tailwindcss/forms": "^0.3.3",
+    "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "autoprefixer": "^10.3.1",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^10.0.0",
     "babel-preset-stage-0": "^6.24.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.30.0",
@@ -80,6 +85,10 @@
     "eslint-plugin-standard": "^5.0.0",
     "gh-pages": "^3.2.3",
     "husky": "^7.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.6",
+    "jest-circus": "^27.0.6",
+    "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^11.0.1",
     "np": "^7.5.0",
     "postcss": "^8.3.5",
@@ -114,5 +123,54 @@
       "yarn lint:fix",
       "yarn format"
     ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "src/components",
+      "src/types",
+      "src/utils"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/jest.setup.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css)$"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.module\\.(css)$": "identity-obj-proxy"
+    },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "react-app"
+        ]
+      }
+    }
   }
 }

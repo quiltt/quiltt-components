@@ -15,7 +15,7 @@ type Ref = React.ReactNode | HTMLElement | string
 
 const TransactionList: CustomComponentRefForwardingComponent<'ul', TransactionListProps> =
   React.forwardRef<Ref, TransactionListProps>(function TransactionList(props, ref) {
-    const { as = 'ul', className, transactions, ...otherProps } = props
+    const { as = 'ul', className = '', transactions, ...otherProps } = props
 
     const baseStyles = 'flex flex-col w-full'
     const wrapperStyles = classNames(baseStyles, className)
