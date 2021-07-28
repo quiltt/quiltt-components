@@ -44,12 +44,12 @@ const AccountContent: React.FC<AccountContentProps> = ({ type, name, lastFourDig
       <div className="font-medium">{name}</div>
       <small className="text-secondary">
         {type}
-        {lastFourDigits && `- x${lastFourDigits}`}
+        {lastFourDigits && ` - x${lastFourDigits}`}
       </small>
     </div>
     {/* Stricter checking to display $0.00 */}
-    {balance?.current !== null && balance?.current !== undefined ? (
-      <div>{currencyFormatter(balance.current as number)}</div>
+    {balance !== null && balance?.current !== null && balance?.current !== undefined ? (
+      <div>{currencyFormatter(balance.current)}</div>
     ) : null}
   </>
 )
