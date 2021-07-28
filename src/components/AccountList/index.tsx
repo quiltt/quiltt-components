@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import Account from 'components/Account'
-
-import type { Account as AccountType } from 'types'
-import { CustomComponentProps, CustomComponentRefForwardingComponent } from 'utils/components'
 import classNames from 'classnames'
+import Account from '../Account'
+
+import type { Account as AccountType } from '../../types'
+import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
 
 type AccountListProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {

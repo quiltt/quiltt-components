@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import babel from '@rollup/plugin-babel'
 import typescript from 'rollup-plugin-typescript2'
 import commonjs from '@rollup/plugin-commonjs'
@@ -21,7 +22,7 @@ export default {
       sourcemap: true,
     },
     {
-      name: 'index.es.js',
+      name: 'index.esm.js',
       file: 'dist/index.esm.js',
       format: 'es',
       exports: 'named',
@@ -31,18 +32,23 @@ export default {
   ],
   plugins: [
     babel({
-      presets: [
-        '@babel/preset-env',
-        '@babel/preset-typescript',
-        '@babel/preset-react',
-      ],
+      presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
       extensions: ['.js', '.ts', 'tsx', 'jsx'],
       babelHelpers: 'runtime',
       exclude: /node_modules/,
       plugins: [
+        ['@babel/transform-runtime', { regenerator: false, useESModules: false }],
         [
-          '@babel/transform-runtime',
-          { regenerator: false, useESModules: false },
+          'babel-plugin-module-resolver',
+          {
+            root: ['./'],
+            alias: {
+              // Add your aliases here
+              components: './src/components',
+              types: './src/types',
+              utils: './src/utils',
+            },
+          },
         ],
       ],
     }),

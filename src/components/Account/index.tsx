@@ -1,10 +1,9 @@
 import * as React from 'react'
 
-import { currencyFormatter } from 'utils/currency'
-
-import type { Account as AccountType, AccountTypes } from 'types'
-import { CustomComponentProps, CustomComponentRefForwardingComponent } from 'utils/components'
 import classNames from 'classnames'
+import type { Account as AccountType, AccountTypes } from '../../types'
+import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
+import { currencyFormatter } from '../../utils/currency'
 import AccountIcons from './AccountIcons'
 
 type AccountContentProps = {

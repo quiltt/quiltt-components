@@ -1,11 +1,10 @@
 import * as React from 'react'
 
-import { currencyFormatter } from 'utils/currency'
-
-import type { Transaction as TransactionType } from 'types'
-import { CustomComponentProps, CustomComponentRefForwardingComponent } from 'utils/components'
-import { friendlyDate } from 'utils/date'
 import classNames from 'classnames'
+import type { Transaction as TransactionType } from '../../types'
+import { friendlyDate } from '../../utils/date'
+import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
+import { currencyFormatter } from '../../utils/currency'
 
 type TransactionContentProps = {
   description: TransactionType['description']
