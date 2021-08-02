@@ -11,7 +11,8 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "yarn run jest -env=jsdom",
+    "test": "jest -env=jsdom",
+    "coverage": "jest --collect-coverage",
     "build": "rollup -c",
     "develop": "rollup -c -w",
     "start": "yarn develop",
@@ -37,17 +38,17 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@babel/eslint-parser": "^7.14.7",
+    "@babel/eslint-parser": "^7.14.9",
     "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.14.9",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-url": "^6.0.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-url": "^6.1.0",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/addon-links": "^6.3.6",
@@ -58,10 +59,10 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@types/react": "^17.0.14",
+    "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
     "autoprefixer": "^10.3.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.6",
@@ -73,7 +74,7 @@
     "babel-preset-react-app": "^10.0.0",
     "babel-preset-stage-0": "^6.24.1",
     "cross-env": "^7.0.3",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -87,7 +88,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-standard": "^5.0.0",
-    "gh-pages": "^3.2.3",
     "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
@@ -95,14 +95,14 @@
     "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^11.0.1",
     "np": "^7.5.0",
-    "postcss": "^8.3.5",
+    "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
-    "postcss-nested": "^5.0.5",
+    "postcss-nested": "^5.0.6",
     "prettier": "^2.3.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-scripts": "^4.0.3",
-    "rollup": "^2.53.1",
+    "rollup": "^2.55.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-dts": "^3.0.2",
@@ -112,12 +112,12 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-url": "^3.0.1",
-    "tailwindcss": "^2.2.4",
+    "tailwindcss": "^2.2.7",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "date-fns": "^2.22.1"
+    "date-fns": "^2.23.0"
   },
   "files": [
     "dist"
@@ -127,46 +127,6 @@
       "yarn lint:fix",
       "yarn format"
     ]
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "src",
-      "src/components",
-      "src/types",
-      "src/utils"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest/jest.setup.js"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jsdom",
-    "transform": {
-      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
-      "^.+\\.module\\.(css)$"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.module\\.(css)$": "identity-obj-proxy"
-    },
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ],
-    "resetMocks": true
   },
   "babel": {
     "env": {
