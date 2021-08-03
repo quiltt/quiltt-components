@@ -7,6 +7,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -14,12 +15,27 @@ jobs:
           node-version: 14
       - run: yarn install --frozen-lockfile
       - run: yarn test
-      - id: publish
+
+      - id: publish-release
+        if: '!github.event.release.prerelease'
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           access: public
           check-version: true
-      - if: steps.publish.outputs.type != 'none'
+          tag: 'latest'
+      - if: steps.publish-release.outputs.type != 'none'
         run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          echo "Published latest release. Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+
+      - id: publish-prerelease
+        if: 'github.event.release.prerelease'
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+          check-version: true
+          tag: 'next'
+      - if: steps.publish-prrelease.outputs.type != 'none'
+        run: |
+          echo "Published latest prerelease. Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
