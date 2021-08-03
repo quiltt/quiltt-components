@@ -16,15 +16,13 @@
     "build": "rollup -c",
     "develop": "rollup -c -w",
     "start": "yarn develop",
-    "precommit": "lint-staged",
-    "prepare": "npm run build",
+    "prepare": "lint-staged",
     "package": "np --no-yarn",
     "publish-script": "npm publish --access public",
-    "predeploy": "cd example && yarn install && yarn build",
-    "deploy": "gh-pages -d example/dist",
     "lint": "eslint --ext .tsx --ext .ts src/ && eslint --ext .tsx --ext .ts example/src/ ",
     "lint:fix": "eslint --ext .tsx --ext .ts src/ --fix && eslint --ext .tsx --ext .ts example/src/ --fix",
-    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css,md,json}\" && prettier --write \"./example/src/**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "prettier": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css,md,json}\" && prettier --write \"./example/src/**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "format": "yarn lint:fix && yarn prettier",
     "type-check": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -136,5 +134,55 @@
         ]
       }
     }
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "src/components",
+      "src/types",
+      "src/utils"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/jest.setup.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      ".storybook/",
+      "src/stories/"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "babel-jest",
+      "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css)$"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.module\\.(css)$": "identity-obj-proxy",
+      "\\.css$": "identity-obj-proxy"
+    },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true
   }
 }

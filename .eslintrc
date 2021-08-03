@@ -8,7 +8,9 @@
   ],
   "plugins": ["@typescript-eslint"],
   "env": {
-    "node": true
+    "browser": true,
+    "node": true,
+    "jest": true
   },
   "parserOptions": {
     "ecmaVersion": 2020,

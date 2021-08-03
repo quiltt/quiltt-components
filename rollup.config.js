@@ -71,7 +71,6 @@ export default {
       include: ['*.js+(|x)', '**/*.js+(|x)'],
       exclude: [
         'coverage',
-        'config',
         'dist',
         'node_modules/**',
         '*.test.{js+(|x), ts+(|x)}',
