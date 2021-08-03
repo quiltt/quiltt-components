@@ -7,7 +7,7 @@ import { AccountMock } from '../../utils/factories'
 
 import Account from '.'
 
-export const account: AccountType = AccountMock.build()
+const account: AccountType = AccountMock.build()
 
 const accountComponent: React.ReactElement = <Account account={account} />
 
