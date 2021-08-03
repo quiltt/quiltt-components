@@ -35,9 +35,16 @@
     "react/jsx-props-no-spreading": 0,
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "error",
     "import/export": 0,
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": 0,
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "simple-import-sort/imports": [
       "error",
       {
@@ -52,10 +59,6 @@
         ]
       }
     ],
-    "simple-import-sort/exports": "off",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "error"
+    "simple-import-sort/exports": "off"
   }
 }
