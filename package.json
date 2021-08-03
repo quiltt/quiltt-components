@@ -127,9 +127,19 @@
     ]
   },
   "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ],
+      [
+        "@babel/preset-typescript"
+      ]
+    ],
     "env": {
       "test": {
         "presets": [
+          "@babel/env",
+          "@babel/typescript",
           "react-app"
         ]
       }
@@ -139,15 +149,8 @@
     "roots": [
       "<rootDir>/src"
     ],
-    "moduleDirectories": [
-      "node_modules",
-      "src",
-      "src/components",
-      "src/types",
-      "src/utils"
-    ],
     "setupFilesAfterEnv": [
-      "<rootDir>/jest/jest.setup.js"
+      "<rootDir>/jest/jest.setup.ts"
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -167,13 +170,29 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/",
+      "/example/"
+    ],
     "transform": {
-      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "babel-jest",
+      "\\.(js|jsx|ts|tsx)?$": "babel-jest",
       "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
       "^.+\\.module\\.(css)$"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json",
+      "node"
     ],
     "moduleNameMapper": {
       "^.+\\.module\\.(css)$": "identity-obj-proxy",
