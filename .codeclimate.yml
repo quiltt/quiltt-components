@@ -29,6 +29,7 @@ exclude_patterns:
   - '**/jest/'
   - '**/node_modules/'
   - '**/src/types/'
+  - 'src/types/index.ts'
   - '.eslintrc'
   - '.prettierrc'
   - '.commitlint.config.js'

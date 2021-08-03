@@ -1,7 +1,7 @@
 module.exports = {
   roots: ['<rootDir>/src'],
-  setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.ts'],
-  collectCoverage: true,
+  setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
+  collectCoverage: false,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts', '!src/types/index.ts'],
   coveragePathIgnorePatterns: ['/node_modules/', '.storybook/', 'src/stories/'],
   coverageReporters: ['lcov'],
@@ -27,4 +27,5 @@ module.exports = {
   },
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
   resetMocks: true,
+  verbose: true,
 }
