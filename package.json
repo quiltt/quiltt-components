@@ -31,8 +31,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react": "^16.0.0 || ^17.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
@@ -96,7 +96,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "jest-watch-typeahead": "^0.6.4",
-    "lint-staged": "^11.0.1",
+    "lint-staged": "^11.1.1",
     "np": "^7.5.0",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",

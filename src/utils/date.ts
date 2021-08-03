@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 // Create custom locale based on en-US, to display relative dates without times
-import { formatDistanceToNow, parseISO, formatRelative } from 'date-fns'
+import { formatDistanceToNow, formatRelative, parseISO } from 'date-fns'
 import formatDistance from 'date-fns/locale/en-US/_lib/formatDistance/index.js'
 import formatLong from 'date-fns/locale/en-US/_lib/formatLong/index.js'
 import localize from 'date-fns/locale/en-US/_lib/localize/index.js'

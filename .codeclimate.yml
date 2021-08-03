@@ -28,8 +28,6 @@ plugins:
       strings:
         - TODO
         - FIXME
-  markdownlint:
-    enabled: true
 exclude_patterns:
   - '.husky/'
   - '.storybook/'
@@ -48,3 +46,4 @@ exclude_patterns:
   - 'tailwind.config.js'
   - 'yarn.lock'
   - '**/*.d.ts'
+  - 'README.md'

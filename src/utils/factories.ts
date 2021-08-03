@@ -1,13 +1,12 @@
 import * as Factory from 'factory.ts'
-
 import * as faker from 'faker/locale/en_US'
 
 import {
   Account,
   AccountTypes,
+  LedgerBalance,
   LedgerState,
   LedgerStatus,
-  LedgerBalance,
   Transaction,
   TransactionEntryTypes,
   TransactionStatus,

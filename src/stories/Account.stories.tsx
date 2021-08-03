@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Account } from 'components'
 

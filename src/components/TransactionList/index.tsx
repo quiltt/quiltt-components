@@ -1,10 +1,10 @@
 import * as React from 'react'
 
 import classNames from 'classnames'
-import Transaction from '../Transaction'
 
 import type { Transaction as TransactionType } from '../../types'
 import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
+import Transaction from '../Transaction'
 
 type TransactionListProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {

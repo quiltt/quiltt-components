@@ -3,10 +3,10 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb-typescript",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["jest-dom", "@typescript-eslint"],
+  "plugins": ["simple-import-sort", "jest-dom", "@typescript-eslint"],
   "env": {
     "browser": true,
     "node": true,
@@ -33,9 +33,26 @@
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
     "react/jsx-props-no-spreading": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "import/export": 0,
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": 0,
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^react-dom"],
+          ["^@?\\w"],
+          ["^(@|@company|@ui|components|utils|config|vendored-lib)(/.*|$)"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "no-use-before-define": "off",
