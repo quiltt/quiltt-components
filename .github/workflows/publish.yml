@@ -20,7 +20,6 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           access: public
           check-version: true
-          tag: ${{ github.event.release.tag_name }}
       - if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
