@@ -29,7 +29,7 @@ const props = {
   } as AccountType,
 }
 
-const accountComponent = <Account account={props.account} />
+const accountComponent: React.ReactElement = <Account account={props.account} />
 
 it('renders account component', () => {
   render(accountComponent)

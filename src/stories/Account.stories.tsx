@@ -10,7 +10,8 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Account>
 
-const Template: ComponentStory<typeof Account> = (args) => <Account {...args} />
+const Template: ComponentStory<typeof Account> = (args) =>
+  (<Account {...args} />) as React.ReactElement
 
 export const Primary = Template.bind({})
 Primary.args = {

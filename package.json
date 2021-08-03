@@ -11,7 +11,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "jest -env=jsdom",
+    "test": "jest",
     "coverage": "jest --collect-coverage",
     "build": "rollup -c",
     "develop": "rollup -c -w",
@@ -37,6 +37,11 @@
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/eslint-parser": "^7.14.9",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.9",
     "@babel/preset-react": "^7.14.5",
@@ -125,83 +130,5 @@
       "yarn lint:fix",
       "yarn format"
     ]
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env"
-      ],
-      [
-        "@babel/preset-typescript"
-      ]
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/env",
-          "@babel/typescript",
-          "react-app"
-        ]
-      }
-    }
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest/jest.setup.ts"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      ".storybook/",
-      "src/stories/"
-    ],
-    "coverageReporters": [
-      "lcov"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jsdom",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/",
-      "/example/"
-    ],
-    "transform": {
-      "\\.(js|jsx|ts|tsx)?$": "babel-jest",
-      "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
-      "^.+\\.module\\.(css)$"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "ts",
-      "tsx",
-      "json",
-      "node"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.module\\.(css)$": "identity-obj-proxy",
-      "\\.css$": "identity-obj-proxy"
-    },
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ],
-    "resetMocks": true
   }
 }
