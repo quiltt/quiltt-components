@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import type { Account as AccountType } from '../../types'
+import { Account as AccountType } from '../../types'
 import Account from '.'
 
 const props = {

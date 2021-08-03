@@ -11,16 +11,17 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
-  transform: {
-    '\\.(js|jsx|ts|tsx)?$': 'babel-jest',
-    '^.+\\.css$': '<rootDir>/jest/mocks/cssMock.js',
-  },
-  transformIgnorePatterns: [
-    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-    '^.+\\.module\\.(css)$',
-  ],
+  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css)$'],
+  // transform: {
+  //   '\\.(js|jsx|ts|tsx)?$': 'babel-jest',
+  //   '^.+\\.css$': '<rootDir>/jest/mocks/cssMock.js',
+  // },
+  // transformIgnorePatterns: [
+  //   '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
+  //   '^.+\\.module\\.(css)$',
+  // ],
   moduleDirectories: ['node_modules'],
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     '^.+\\.module\\.(css)$': 'identity-obj-proxy',
     '\\.css$': 'identity-obj-proxy',
