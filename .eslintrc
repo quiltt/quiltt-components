@@ -6,7 +6,7 @@
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["jest-dom", "@typescript-eslint"],
   "env": {
     "browser": true,
     "node": true,
