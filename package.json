@@ -16,7 +16,6 @@
     "build": "rollup -c",
     "develop": "rollup -c -w",
     "start": "yarn develop",
-    "prepare": "lint-staged",
     "publish-script": "npm publish --access public",
     "lint": "eslint --ext .tsx --ext .ts src/ && eslint --ext .tsx --ext .ts example/src/ ",
     "lint:fix": "eslint --ext .tsx --ext .ts src/ --fix && eslint --ext .tsx --ext .ts example/src/ --fix",
@@ -122,11 +121,5 @@
   },
   "files": [
     "dist"
-  ],
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "yarn lint:fix",
-      "yarn format"
-    ]
-  }
+  ]
 }

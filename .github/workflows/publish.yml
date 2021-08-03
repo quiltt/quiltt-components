@@ -26,7 +26,7 @@ jobs:
           tag: 'latest'
       - if: steps.publish-release.outputs.type != 'none'
         run: |
-          echo "Published latest release. Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          echo "Published latest release. Version changed: ${{ steps.publish-release.outputs.old-version }} => ${{ steps.publish-release.outputs.version }}"
 
       - id: publish-prerelease
         if: 'github.event.release.prerelease'
@@ -36,6 +36,6 @@ jobs:
           access: public
           check-version: true
           tag: 'next'
-      - if: steps.publish-prrelease.outputs.type != 'none'
+      - if: steps.publish-prerelease.outputs.type != 'none'
         run: |
-          echo "Published latest prerelease. Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          echo "Published latest prerelease. Version changed: ${{ steps.publish-prerelease.outputs.old-version }} => ${{ steps.publish-prerelease.outputs.version }}"
