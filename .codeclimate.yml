@@ -4,15 +4,24 @@ plugins:
     enabled: true
   duplication:
     enabled: true
+    exclude_patterns:
+      - 'src/types/'
+      - '**/*.test.js'
+      - '**/*.test.jsx'
+      - '**/*.test.ts'
+      - '**/*.test.tsx'
+      - '**/*.d.ts'
+      - '**/*.stories.tsx'
+      - '**/*.stories.mdx'
   eslint:
     enabled: true
     channel: 'eslint-7'
     config:
-    extensions:
-      - .js
-      - .jsx
-      - .ts
-      - .tsx
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
   fixme:
     enabled: true
     config:
@@ -32,7 +41,9 @@ exclude_patterns:
   - 'src/types/index.ts'
   - '.eslintrc'
   - '.prettierrc'
-  - '.commitlint.config.js'
+  - 'babel.config.js'
+  - 'commitlint.config.js'
+  - 'jest.config.js'
   - 'rollup.config.js'
   - 'tailwind.config.js'
   - 'yarn.lock'

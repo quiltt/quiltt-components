@@ -50,14 +50,3 @@ export const friendlyDate = (date: string): string | null => {
 export const timeDifference = (date: string): string => {
   return formatDistanceToNow(parseISO(date), { addSuffix: true })
 }
-
-// export const getLineItems = (item: any) => {
-//   return (
-//     item.lineItems &&
-//     item.lineItems.slice().sort((a, b) => {
-//       const dateA = new Date(a.completedAt).getTime()
-//       const dateB = new Date(b.completedAt).getTime()
-//       return dateA > dateB ? 1 : -1
-//     })
-//   )
-// }
