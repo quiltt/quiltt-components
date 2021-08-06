@@ -21,7 +21,6 @@ plugins:
         - FIXME
 exclude_patterns:
   - '.husky/'
-  - '.storybook/'
   - '.vscode/'
   - '**/example/'
   - '**/jest/'

@@ -2,24 +2,37 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import type { Account as AccountType, AccountTypes } from '../../types'
+import type { Account as AccountType, Maybe, Scalars } from '../../types'
+import { AccountTypes } from '../../types'
 import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
 import { currencyFormatter } from '../../utils/currency'
 
 import AccountIcons from './AccountIcons'
 
 type AccountContentProps = {
-  type: AccountTypes
-  name: AccountType['name']
+  type?: AccountTypes
+  name?: AccountType['name']
   lastFourDigits?: AccountType['lastFourDigits']
-  balance?: AccountType['balance']
+  balance?: {
+    __typename?: 'LedgerBalance'
+    available?: Maybe<Scalars['Float']>
+    current?: Maybe<Scalars['Float']>
+    id?: Scalars['ID']
+    limit?: Maybe<Scalars['Float']>
+  }
 }
 
 type AccountProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
     account: {
       __typename?: AccountType['__typename']
-      balance?: AccountType['balance']
+      balance?: {
+        __typename?: 'LedgerBalance'
+        available?: Maybe<Scalars['Float']>
+        current?: Maybe<Scalars['Float']>
+        id?: Scalars['ID']
+        limit?: Maybe<Scalars['Float']>
+      }
       bills?: AccountType['bills']
       id?: AccountType['id']
       lastFourDigits?: AccountType['lastFourDigits']
@@ -38,11 +51,16 @@ type AccountProps = React.HTMLAttributes<HTMLElement> &
 
 type Ref = React.ReactNode | HTMLElement | string
 
-const AccountContent: React.FC<AccountContentProps> = ({ type, name, lastFourDigits, balance }) => (
+const AccountContent: React.FC<AccountContentProps> = ({
+  type = AccountTypes.Other,
+  name,
+  lastFourDigits,
+  balance,
+}) => (
   <>
     <AccountIcons type={type} />
     <div className="flex-auto w-4/5 overflow-hidden leading-tight overflow-ellipsis">
-      <div className="font-medium">{name}</div>
+      {name ? <div className="font-medium">{name}</div> : null}
       <small className="text-secondary">
         {type}
         {lastFourDigits && ` - x${lastFourDigits}`}

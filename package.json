@@ -21,9 +21,7 @@
     "lint:fix": "eslint --ext .tsx --ext .ts src/ --fix && eslint --ext .tsx --ext .ts example/src/ --fix",
     "prettier": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css,md,json}\" && prettier --write \"./example/src/**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "format": "yarn lint:fix && yarn prettier",
-    "type-check": "tsc",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "type-check": "tsc"
   },
   "publishConfig": {
     "access": "public"
@@ -50,10 +48,6 @@
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-url": "^6.1.0",
-    "@storybook/addon-actions": "^6.3.6",
-    "@storybook/addon-essentials": "^6.3.6",
-    "@storybook/addon-links": "^6.3.6",
-    "@storybook/react": "^6.3.6",
     "@svgr/rollup": "^5.5.0",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
