@@ -28,7 +28,6 @@ export const LedgerBalanceMock = Factory.Sync.makeFactory<LedgerBalance>({
 export const AccountMock = Factory.Sync.makeFactory<Account>({
   id: Factory.each(() => faker.datatype.uuid()),
   balance: Factory.each(() => LedgerBalanceMock.build()),
-  bills: [],
   lastFourDigits: Factory.each(() => faker.helpers.replaceSymbolWithNumber('####')),
   name: Factory.each(() => faker.finance.accountName()),
   state: LedgerState.Open,

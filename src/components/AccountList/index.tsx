@@ -8,7 +8,8 @@ import Account from '../Account'
 
 type AccountListProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
-    accounts: AccountType[]
+    accounts: Partial<AccountType>[]
+    hideIcons?: boolean
   }
 
 type Ref = React.ReactNode | HTMLElement | string
@@ -17,7 +18,7 @@ const AccountList: CustomComponentRefForwardingComponent<'ul', AccountListProps>
   Ref,
   AccountListProps
 >(function AccountList(props, ref) {
-  const { as = 'ul', className = '', accounts, ...otherProps } = props
+  const { as = 'ul', className = '', hideIcons = false, accounts, ...otherProps } = props
 
   const baseStyles = 'flex flex-col w-full'
   const wrapperStyles = classNames(baseStyles, className)
@@ -34,7 +35,15 @@ const AccountList: CustomComponentRefForwardingComponent<'ul', AccountListProps>
     },
     accounts.map((account) => {
       const { id } = account
-      return <Account className={listItemStyles} account={account} key={id} as={accountAs} />
+      return (
+        <Account
+          hideIcon={hideIcons}
+          className={listItemStyles}
+          account={account}
+          key={id}
+          as={accountAs}
+        />
+      )
     })
   )
 })

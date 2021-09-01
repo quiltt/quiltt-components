@@ -7,43 +7,28 @@ import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../
 import { currencyFormatter } from '../../utils/currency'
 import { friendlyDate } from '../../utils/date'
 
-type TransactionContentProps = {
-  description: TransactionType['description']
-  date: TransactionType['date']
-  amount: TransactionType['amount']
-}
+type TransactionProps = Partial<TransactionType>
 
-type TransactionProps = React.HTMLAttributes<HTMLElement> &
-  CustomComponentProps & {
-    transaction: {
-      __typename?: 'Transaction'
-      account?: TransactionType['account']
-      amount: TransactionType['amount']
-      date: TransactionType['date']
-      description: TransactionType['description']
-      entryType?: TransactionType['entryType']
-      id?: TransactionType['id']
-      metadata?: TransactionType['metadata']
-      source?: TransactionType['source']
-      sources?: TransactionType['sources']
-      status?: TransactionType['status']
-    }
-  }
-
-type Ref = React.ReactNode | HTMLElement | string
-
-const TransactionContent: React.FC<TransactionContentProps> = ({ description, date, amount }) => (
+const TransactionContent: React.FC<TransactionProps> = ({ description, date, amount }) => (
   <>
     <div className="overflow-hidden">
       <strong className="truncate">{description}</strong>
       <div className="leading-tight">{friendlyDate(date)}</div>
     </div>
-    <strong>{currencyFormatter(amount)}</strong>
+    {amount && amount >= 0 && <strong>{currencyFormatter(amount)}</strong>}
+    {amount && amount < 0 && <strong className="text-red-600">{currencyFormatter(amount)}</strong>}
   </>
 )
 
-const Transaction: CustomComponentRefForwardingComponent<'div', TransactionProps> =
-  React.forwardRef<Ref, TransactionProps>(function Transaction(props, ref) {
+type TransactionComponentProps = React.HTMLAttributes<HTMLElement> &
+  CustomComponentProps & {
+    transaction: TransactionProps
+  }
+
+type Ref = React.ReactNode | HTMLElement | string
+
+const Transaction: CustomComponentRefForwardingComponent<'div', TransactionComponentProps> =
+  React.forwardRef<Ref, TransactionComponentProps>(function Transaction(props, ref) {
     const { as = 'div', className = '', transaction, ...otherProps } = props
 
     const baseStyles = 'flex items-center justify-between space-x-3'

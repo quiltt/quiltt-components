@@ -2,63 +2,26 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import type { Account as AccountType, Maybe, Scalars } from '../../types'
+import type { Account as AccountType } from '../../types'
 import { AccountTypes } from '../../types'
 import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
 import { currencyFormatter } from '../../utils/currency'
 
 import AccountIcons from './AccountIcons'
 
-type AccountContentProps = {
-  type?: AccountTypes
-  name?: AccountType['name']
-  lastFourDigits?: AccountType['lastFourDigits']
-  balance?: {
-    __typename?: 'LedgerBalance'
-    available?: Maybe<Scalars['Float']>
-    current?: Maybe<Scalars['Float']>
-    id?: Scalars['ID']
-    limit?: Maybe<Scalars['Float']>
-  }
+type AccountProps = Partial<AccountType> & {
+  hideIcon?: boolean
 }
 
-type AccountProps = React.HTMLAttributes<HTMLElement> &
-  CustomComponentProps & {
-    account: {
-      __typename?: AccountType['__typename']
-      balance?: {
-        __typename?: 'LedgerBalance'
-        available?: Maybe<Scalars['Float']>
-        current?: Maybe<Scalars['Float']>
-        id?: Scalars['ID']
-        limit?: Maybe<Scalars['Float']>
-      }
-      bills?: AccountType['bills']
-      id?: AccountType['id']
-      lastFourDigits?: AccountType['lastFourDigits']
-      metadata?: AccountType['metadata']
-      name: AccountType['name']
-      plaidItem?: AccountType['plaidItem']
-      source?: AccountType['source']
-      sources?: AccountType['sources']
-      state?: AccountType['state']
-      status?: AccountType['status']
-      transactions?: AccountType['transactions']
-      transactionsConnection?: AccountType['transactionsConnection']
-      type: AccountType['type']
-    }
-  }
-
-type Ref = React.ReactNode | HTMLElement | string
-
-const AccountContent: React.FC<AccountContentProps> = ({
+const AccountContent: React.FC<AccountProps> = ({
   type = AccountTypes.Other,
   name,
   lastFourDigits,
   balance,
+  hideIcon = false,
 }) => (
   <>
-    <AccountIcons type={type} />
+    {hideIcon ? null : <AccountIcons type={type} />}
     <div className="flex-auto w-4/5 overflow-hidden leading-tight overflow-ellipsis">
       {name ? <div className="font-medium">{name}</div> : null}
       <small className="text-secondary">
@@ -73,26 +36,38 @@ const AccountContent: React.FC<AccountContentProps> = ({
   </>
 )
 
-const Account: CustomComponentRefForwardingComponent<'div', AccountProps> = React.forwardRef<
-  Ref,
-  AccountProps
->(function Account(props, ref) {
-  const { as = 'div', className = '', account, ...otherProps } = props
+type AccountComponentProps = React.HTMLAttributes<HTMLElement> &
+  CustomComponentProps & {
+    account: AccountProps
+    hideIcon?: boolean
+  }
 
-  const baseStyles = 'flex items-center justify-between space-x-3'
-  const wrapperStyles = classNames(baseStyles, className)
+type Ref = React.ReactNode | HTMLElement | string
 
-  const { type, name, lastFourDigits, balance } = account
+const Account: CustomComponentRefForwardingComponent<'div', AccountComponentProps> =
+  React.forwardRef<Ref, AccountComponentProps>(function Account(props, ref) {
+    const { as = 'div', className = '', hideIcon = false, account, ...otherProps } = props
 
-  return React.createElement(
-    as as string,
-    {
-      className: wrapperStyles,
-      ref,
-      ...otherProps,
-    },
-    <AccountContent type={type} name={name} lastFourDigits={lastFourDigits} balance={balance} />
-  )
-})
+    const baseStyles = 'flex items-center justify-between space-x-3'
+    const wrapperStyles = classNames(baseStyles, className)
+
+    const { type, name, lastFourDigits, balance } = account
+
+    return React.createElement(
+      as as string,
+      {
+        className: wrapperStyles,
+        ref,
+        ...otherProps,
+      },
+      <AccountContent
+        type={type}
+        name={name}
+        lastFourDigits={lastFourDigits}
+        balance={balance}
+        hideIcon={hideIcon}
+      />
+    )
+  })
 
 export default Account

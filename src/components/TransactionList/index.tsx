@@ -8,7 +8,7 @@ import Transaction from '../Transaction'
 
 type TransactionListProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
-    transactions: TransactionType[]
+    transactions: Partial<TransactionType>[]
   }
 
 type Ref = React.ReactNode | HTMLElement | string

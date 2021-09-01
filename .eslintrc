@@ -6,7 +6,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["simple-import-sort", "jest-dom", "@typescript-eslint"],
+  "plugins": ["import", "react", "simple-import-sort", "jest-dom", "@typescript-eslint"],
   "env": {
     "browser": true,
     "node": true,
@@ -26,6 +26,7 @@
     }
   },
   "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "max-len": [1, { "code": 100 }],
     "space-before-function-paren": 0,
     "react/prop-types": 0,
