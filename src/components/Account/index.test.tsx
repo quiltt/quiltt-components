@@ -2,12 +2,11 @@ import * as React from 'react'
 
 import { render } from '@testing-library/react'
 
-import { Account as AccountType } from '../../types'
 import { AccountMock } from '../../utils/factories'
 
 import Account from '.'
 
-const account: AccountType = AccountMock.build()
+const account = AccountMock.build()
 
 const accountComponent: React.ReactElement = <Account account={account} />
 

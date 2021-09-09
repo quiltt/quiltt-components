@@ -5,7 +5,13 @@ module.exports = {
   roots: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/jest/jest.setup.js'],
   collectCoverage: false,
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts', '!src/types/index.ts'],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/types/index.ts',
+    '!src/utils/**/*.ts',
+    '!example/**/*',
+  ],
   coveragePathIgnorePatterns: ['/node_modules/', '.storybook/', 'src/stories/'],
   coverageReporters: ['lcov'],
   testMatch: [

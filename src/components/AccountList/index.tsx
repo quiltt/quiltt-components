@@ -8,7 +8,7 @@ import Account from '../Account'
 
 type AccountListProps = React.HTMLAttributes<HTMLElement> &
   CustomComponentProps & {
-    accounts: Partial<AccountType>[]
+    accounts: Partial<AccountType>[] | AccountType[]
     hideIcons?: boolean
   }
 
@@ -20,9 +20,9 @@ const AccountList: CustomComponentRefForwardingComponent<'ul', AccountListProps>
 >(function AccountList(props, ref) {
   const { as = 'ul', className = '', hideIcons = false, accounts, ...otherProps } = props
 
-  const baseStyles = 'flex flex-col w-full'
+  const baseStyles = 'flex flex-col w-full divide-y'
   const wrapperStyles = classNames(baseStyles, className)
-  const listItemStyles = classNames('p-4 border-b border-gray-200 last:border-b-0')
+  const listItemStyles = classNames('p-4')
 
   const accountAs = as === 'ul' || as === 'ol' ? 'li' : 'div'
 

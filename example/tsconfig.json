@@ -16,7 +16,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src/",
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,17 +26,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src/**/*", "jest/**/*"],
-  "exclude": [
-    "node_modules",
-    "coverage",
-    "dist",
-    "example",
-    "commitlint.config.js",
-    "tailwind.config.js",
-    "rollup.config.js",
-    "tsconfig.json",
-    "babel.config.js",
-    "jest.config.js"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "build"]
 }

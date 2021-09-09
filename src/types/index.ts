@@ -1167,7 +1167,7 @@ export type SubscriptionPlaidItemUpdatedArgs = {
 export type Transaction = {
   __typename?: 'Transaction'
   /** Transaction account */
-  account: Account
+  account: Account | Partial<Account>
   /** Amount */
   amount: Scalars['Float']
   /** Date of Record */
