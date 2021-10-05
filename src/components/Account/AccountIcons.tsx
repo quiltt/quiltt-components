@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import type { AccountTypes } from '../../types'
+import type { AccountType } from '../../types'
 
 const BaseIcon = ({ children }: { children: React.ReactNode }) => (
   <svg
@@ -76,7 +76,7 @@ const OtherIcon = () => (
   </BaseIcon>
 )
 
-const AccountIcons = ({ type }: { type: AccountTypes }): JSX.Element => (
+const AccountIcons = ({ type }: { type: AccountType }): JSX.Element => (
   <>
     {
       {

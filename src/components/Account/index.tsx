@@ -3,7 +3,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 import type { Account as AccountType } from '../../types'
-import { AccountTypes } from '../../types'
+import { AccountType as AccountTypes } from '../../types'
 import { CustomComponentProps, CustomComponentRefForwardingComponent } from '../../utils/components'
 import { currencyFormatter } from '../../utils/currency'
 

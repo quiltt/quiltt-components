@@ -3,11 +3,11 @@ import * as faker from 'faker/locale/en_US'
 
 import {
   Account,
-  AccountTypes,
+  AccountType,
   LedgerBalance,
   LedgerState,
   Transaction,
-  TransactionEntryTypes,
+  TransactionEntryType,
   TransactionStatus,
 } from '../types'
 
@@ -38,7 +38,7 @@ export const AccountMock = Factory.Sync.makeFactory<Partial<Account>>({
   balance: Factory.each(() => LedgerBalanceMock.build()) as unknown as LedgerBalance,
   lastFourDigits: Factory.each(() => faker.helpers.replaceSymbolWithNumber('####')),
   state: LedgerState.Open,
-  type: Factory.each(() => randomEnum(AccountTypes)),
+  type: Factory.each(() => randomEnum(AccountType)),
   transactions: [],
 }).withDerivation(
   'name',
@@ -50,7 +50,7 @@ export const AccountWithTransactionsMock = Factory.Sync.makeFactory<Partial<Acco
   balance: Factory.each(() => LedgerBalanceMock.build()) as unknown as LedgerBalance,
   lastFourDigits: Factory.each(() => faker.helpers.replaceSymbolWithNumber('####')),
   state: LedgerState.Open,
-  type: Factory.each(() => randomEnum(AccountTypes)),
+  type: Factory.each(() => randomEnum(AccountType)),
   transactions: [],
 })
   .withDerivation(
@@ -66,7 +66,7 @@ export const AccountWithTransactionsMock = Factory.Sync.makeFactory<Partial<Acco
         amount: parseFloat(faker.finance.amount()),
         date: faker.date.recent(faker.datatype.number({ min: 1, max: 7 })).toISOString(),
         description: faker.commerce.productName(),
-        entryType: randomEnum(TransactionEntryTypes),
+        entryType: randomEnum(TransactionEntryType),
         status: randomEnum(TransactionStatus),
       })
     }
@@ -83,6 +83,6 @@ export const TransactionMock = Factory.Sync.makeFactoryWithRequired<
     faker.date.recent(faker.datatype.number({ min: 1, max: 7 })).toISOString()
   ),
   description: Factory.each(() => faker.commerce.productName()),
-  entryType: Factory.each(() => randomEnum(TransactionEntryTypes)),
+  entryType: Factory.each(() => randomEnum(TransactionEntryType)),
   status: Factory.each(() => randomEnum(TransactionStatus)),
 })
