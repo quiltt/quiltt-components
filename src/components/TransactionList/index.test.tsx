@@ -7,6 +7,7 @@ import { AccountMock, TransactionMock } from '../../utils/factories'
 import TransactionList from '.'
 
 export const account = AccountMock.build()
+// @ts-ignore
 export const transactions = TransactionMock.buildList(5, { account })
 
 const transactionListComponent: React.ReactElement = <TransactionList transactions={transactions} />
